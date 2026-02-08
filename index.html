@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для тебя 💌</title>
+<style>
+  /* === Общие стили === */
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    overflow:hidden;
+    background: linear-gradient(135deg, #FF5E7E, #FFC1C1);
+    color:#fff;
+  }
+  main {
+    display:flex;
+    height:100vh;
+    width:700vw; /* 7 экранов по ширине */
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  section {
+    scroll-snap-align:start;
+    flex:0 0 100vw;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:8vw;
+    position:relative;
+    transition: all 0.5s ease;
+  }
+  h1 { font-size:8vw; margin-bottom:4vw; }
+  p { font-size:4.5vw; line-height:1.4; margin-bottom:3vw; }
+
+  /* === Экраны === */
+  #intro { }
+  #moments { }
+  #parallel { background:linear-gradient(to top, #FF7E9A, #FFB7C5); }
+  #cards { background:linear-gradient(to top, #FF9CAC, #FFD6DC); }
+  #letter { background:linear-gradient(to top, #FFB1C1, #FFE4E4); color:#0f0f14; }
+  #choice { background:linear-gradient(to top, #FF8AA9, #FFC8D1); color:#0f0f14; }
+  #signature { background:linear-gradient(to top, #FF5E7E, #FFC1C1); }
+
+  /* === Анимации текста === */
+  .fade-up {
+    opacity:0;
+    transform:translateY(10px);
+    animation:fadeUp 0.8s forwards;
+  }
+  .delay1 { animation-delay:0.5s; }
+  .delay2 { animation-delay:1.3s; }
+  .delay3 { animation-delay:2.6s; }
+  .delay4 { animation-delay:3.3s; }
+  .delay5 { animation-delay:4s; }
+  @keyframes fadeUp {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* === Карточки === */
+  .card {
+    margin:3vw 0;
+    padding:4vw 6vw;
+    border-radius:12px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    cursor:pointer;
+    transition: all 0.3s ease;
+    max-width:90%;
+  }
+  .card:hover { transform: scale(1.05); background: rgba(255,255,255,0.35); }
+
+  /* === Кнопки Моменты и Выбор === */
+  button {
+    margin-top:4vw;
+    padding:3vw 6vw;
+    font-size:4vw;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:#fff;
+    color:#FF5E7E;
+    font-weight:bold;
+    transition:0.3s;
+  }
+  button:hover { opacity:0.8; }
+
+  /* === Сердечки на фоне === */
+  .heart {
+    position:absolute;
+    width:6vw;
+    height:6vw;
+    background:red;
+    clip-path: polygon(50% 0%, 61% 10%, 70% 25%, 70% 45%, 50% 70%, 30% 45%, 30% 25%, 39% 10%);
+    opacity:0.6;
+    animation:float 6s infinite ease-in-out;
+  }
+  @keyframes float {
+    0% { transform: translateY(0) scale(1) rotate(0deg); }
+    50% { transform: translateY(-20px) scale(1.1) rotate(10deg);}
+    100% { transform: translateY(0) scale(1) rotate(0deg);}
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+<!-- Экран 1: Вход -->
+<section id="intro">
+  <p class="fade-up delay1">Привет.</p>
+  <p class="fade-up delay2">Это сайт для тебя.</p>
+  <p class="fade-up delay3">Я сделал его,</p>
+  <p class="fade-up delay4">потому что хотел сказать кое-что спокойно и честно.</p>
+</section>
+
+<!-- Экран 2: Моменты -->
+<section id="moments">
+  <h1>Моменты, которые я запомнил</h1>
+  <p id="moment-text">Тот вечер, когда ты смеялась и не смотрела на телефон.</p>
+  <button id="next-moment">Показать ещё</button>
+</section>
+
+<!-- Экран 3: Параллельная реальность -->
+<section id="parallel">
+  <h1>Параллельная реальность</h1>
+  <p>В одном из вариантов этой реальности мы просто идём рядом.</p>
+  <p>Без объяснений. Без обещаний.</p>
+  <p>Ты улыбаешься. Я это замечаю.</p>
+  <p>В этом мире ничего не пришлось бы придумывать.</p>
+  <div class="heart" style="top:20%; left:10%; animation-delay:0s;"></div>
+  <div class="heart" style="top:50%; left:60%; animation-delay:2s;"></div>
+  <div class="heart" style="top:70%; left:30%; animation-delay:4s;"></div>
+</section>
+
+<!-- Экран 4: Карточки -->
+<section id="cards">
+  <h1>То, что я в тебе заметил</h1>
+  <div class="card">Ты умеешь слушать</div>
+  <div class="card">С тобой спокойно</div>
+  <div class="card">Ты настоящая</div>
+  <div class="card">Ты даришь тепло</div>
+</section>
+
+<!-- Экран 5: Письмо -->
+<section id="letter">
+  <h1>Это письмо не требует ответа</h1>
+  <p>Я не жду ничего взамен.</p>
+  <p>Мне просто важно, чтобы ты знала:</p>
+  <p>ты была чем-то настоящим в моём времени.</p>
+</section>
+
+<!-- Экран 6: Выбор -->
+<section id="choice">
+  <h1>И на этом всё</h1>
+  <button id="smile">Улыбнуться</button>
+  <button id="close">Закрыть страницу</button>
+</section>
+
+<!-- Экран 7: Подпись -->
+<section id="signature">
+  <p>С теплом,</p>
+  <h1>ТВОЁ ИМЯ</h1>
+  <p>14 февраля</p>
+</section>
+
+</main>
+
+<script>
+  // === Скрипт для экрана Моменты ===
+  const moments = [
+    "Тот вечер, когда ты смеялась и не смотрела на телефон.",
+    "Сообщение, после которого я долго сидел в тишине.",
+    "Как рядом с тобой не нужно было притворяться.",
+    "Маленькие разговоры, которые остались со мной."
+  ];
+  let current = 0;
+  const momentText = document.getElementById("moment-text");
+  document.getElementById("next-moment").addEventListener("click", () => {
+    current = (current + 1) % moments.length;
+    momentText.textContent = moments[current];
+  });
+
+  // === Скрипт для экрана Выбор ===
+  document.getElementById("smile").addEventListener("click", () => {
+    alert("Тогда я рад 🤍");
+  });
+  document.getElementById("close").addEventListener("click", () => {
+    alert("Спасибо, что дочитала.");
+  });
+</script>
+</body>
+</html>
