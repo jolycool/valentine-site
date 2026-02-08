@@ -1,0 +1,80 @@
+body {
+  margin:0;
+  font-family: 'Inter', sans-serif;
+  overflow:hidden;
+  background: linear-gradient(135deg,#FF5E7E,#FFC1C1);
+  color:#fff;
+}
+
+main {
+  display:flex;
+  width:700vw; /* 7 экранов */
+  height:100vh;
+  overflow-x:hidden; /* свайпы через JS */
+  position:relative;
+}
+
+.screen {
+  min-width:100vw;
+  height:100vh;
+  flex-shrink:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:8vw;
+  transition: all 0.5s ease;
+}
+
+/* Карточки */
+.card {
+  margin:3vw 0;
+  padding:4vw 6vw;
+  border-radius:12px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+  cursor:pointer;
+  transition: all 0.3s ease;
+}
+.card:hover { transform: scale(1.05); background: rgba(255,255,255,0.35); }
+
+/* Кнопки */
+button {
+  margin-top:4vw;
+  padding:3vw 6vw;
+  font-size:4vw;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  background:#fff;
+  color:#FF5E7E;
+  font-weight:bold;
+  transition:0.3s;
+}
+button:hover { opacity:0.8; }
+
+/* Печатающийся текст */
+.typewriter {
+  overflow:hidden;
+  border-right:0.1em solid #fff;
+  white-space: nowrap;
+  animation: typing 3s steps(40,end) forwards;
+}
+@keyframes typing { from { width:0 } to { width:100%; } }
+
+/* Сердечки */
+.heart {
+  position:absolute;
+  width:6vw;
+  height:6vw;
+  background:red;
+  clip-path: polygon(50% 0%, 61% 10%, 70% 25%, 70% 45%, 50% 70%, 30% 45%, 30% 25%, 39% 10%);
+  opacity:0.6;
+  animation:float 6s infinite ease-in-out;
+}
+@keyframes float {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(-20px) scale(1.1) rotate(10deg);}
+  100% { transform: translateY(0) scale(1) rotate(0deg);}
+}
