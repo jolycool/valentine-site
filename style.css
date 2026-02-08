@@ -1,0 +1,74 @@
+/* Сброс */
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; height:100%; overflow:hidden; font-family:'Inter',sans-serif; }
+
+/* Основной контейнер SPA */
+main {
+  display:flex;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  position:relative;
+}
+
+/* Экран */
+.screen {
+  min-width:100%;
+  height:100%;
+  flex-shrink:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:5vw;
+  transition: transform 0.5s ease;
+}
+
+/* Карточки */
+.card {
+  width:80%;
+  max-width:400px;
+  margin:2vh 0;
+  padding:3vh 3vw;
+  border-radius:12px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+  cursor:pointer;
+  transition: all 0.3s ease;
+}
+.card:hover { transform: scale(1.05); background: rgba(255,255,255,0.35); }
+
+/* Кнопки */
+button {
+  margin-top:3vh;
+  padding:2vh 4vw;
+  font-size:4vw;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  background:#fff;
+  color:#FF5E7E;
+  font-weight:bold;
+}
+
+/* Печатающийся текст */
+.typewriter {
+  overflow:hidden;
+  border-right:0.1em solid #fff;
+  white-space: nowrap;
+  animation: typing 3s steps(40,end) forwards;
+}
+@keyframes typing { from { width:0 } to { width:100%; } }
+
+/* Сердечки на фоне */
+.heart {
+  position:absolute;
+  width:10vw;
+  height:10vw;
+  background:red;
+  clip-path: polygon(50% 0%, 61% 10%, 70% 25%, 70% 45%, 50% 70%, 30% 45%, 30% 25%, 39% 10%);
+  opacity:0.6;
+  animation:float 6s infinite ease-in-out;
+}
+@keyframes float { 0% { transform:translateY(0) } 50% { transform:translateY(-20px) } 100% { transform:translateY(0) } }
